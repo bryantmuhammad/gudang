@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('id_supplier');
             $table->string('nama_supplier', 50);
             $table->string('no_telepon_supplier', 20);
-            $table->string('alamat_supllier', 150);
+            $table->string('alamat_supplier', 150);
             $table->timestamps();
         });
     }

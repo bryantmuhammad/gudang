@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\{
+    UserController,
+    KategoriController,
+    SupplierController
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +20,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/dashboard-general-dashboard');
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/index', function () {
+        return 'asdasd';
+    })->name('dashboard.index');
+
+    //User
+    Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('dashboard.user.delete');
+    Route::get('/user', [UserController::class, 'index'])->name('dashboard.user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('dashboard.user.create');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('dashboard.user.edit');
+    Route::post('/user/store', [UserController::class, 'store'])->name('dashboard.user.store');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('dashboard.user.update');
+
+
+    //Kategori
+    Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('dashboard.kategori.delete');
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('dashboard.kategori.index');
+    Route::get('/kategori/create', [KategoriController::class, 'create'])->name('dashboard.kategori.create');
+    Route::get('/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('dashboard.kategori.edit');
+    Route::post('/kategori/store', [KategoriController::class, 'store'])->name('dashboard.kategori.store');
+    Route::put('/kategori/{kategori}', [KategoriController::class, 'update'])->name('dashboard.kategori.update');
+
+    //Supplier 
+    Route::delete('/supplier/{supplier}', [SupplierController::class, 'destroy'])->name('dashboard.supplier.delete');
+    Route::get('/supplier', [SupplierController::class, 'index'])->name('dashboard.supplier.index');
+    Route::get('/supplier/create', [SupplierController::class, 'create'])->name('dashboard.supplier.create');
+    Route::get('/supplier/{supplier}/edit', [SupplierController::class, 'edit'])->name('dashboard.supplier.edit');
+    Route::post('/supplier/store', [SupplierController::class, 'store'])->name('dashboard.supplier.store');
+    Route::put('/supplier/{supplier}', [SupplierController::class, 'update'])->name('dashboard.supplier.update');
+});
+
+
+
+
+
 
 // Dashboard
 Route::get('/dashboard-general-dashboard', function () {
