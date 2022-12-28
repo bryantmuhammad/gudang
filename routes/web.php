@@ -7,7 +7,8 @@ use App\Http\Controllers\Admin\{
     KategoriController,
     SupplierController,
     TokoController,
-    ProdukController
+    ProdukController,
+    DashboardController
 };
 
 /*
@@ -21,7 +22,9 @@ use App\Http\Controllers\Admin\{
 |
 */
 
+
 Route::redirect('/', '/dashboard-general-dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/index', function () {
