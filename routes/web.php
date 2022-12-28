@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     UserController,
     KategoriController,
-    SupplierController
+    SupplierController,
+    TokoController,
+    ProdukController
 };
 
 /*
@@ -50,6 +52,22 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/supplier/{supplier}/edit', [SupplierController::class, 'edit'])->name('dashboard.supplier.edit');
     Route::post('/supplier/store', [SupplierController::class, 'store'])->name('dashboard.supplier.store');
     Route::put('/supplier/{supplier}', [SupplierController::class, 'update'])->name('dashboard.supplier.update');
+
+    //Toko
+    Route::delete('/toko/{toko}', [TokoController::class, 'destroy'])->name('dashboard.toko.delete');
+    Route::get('/toko', [TokoController::class, 'index'])->name('dashboard.toko.index');
+    Route::get('/toko/create', [TokoController::class, 'create'])->name('dashboard.toko.create');
+    Route::get('/toko/{toko}/edit', [TokoController::class, 'edit'])->name('dashboard.toko.edit');
+    Route::post('/toko/store', [TokoController::class, 'store'])->name('dashboard.toko.store');
+    Route::put('/toko/{toko}', [TokoController::class, 'update'])->name('dashboard.toko.update');
+
+    //Produk
+    Route::delete('/produk/{produk}', [ProdukController::class, 'destroy'])->name('dashboard.produk.delete');
+    Route::get('/produk', [ProdukController::class, 'index'])->name('dashboard.produk.index');
+    Route::get('/produk/create', [ProdukController::class, 'create'])->name('dashboard.produk.create');
+    Route::get('/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('dashboard.produk.edit');
+    Route::post('/produk/store', [ProdukController::class, 'store'])->name('dashboard.produk.store');
+    Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('dashboard.produk.update');
 });
 
 

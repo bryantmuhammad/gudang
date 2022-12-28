@@ -9,18 +9,18 @@
             <h1>{{ $title }}</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard.index') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('dashboard.produk.index') }}">Produk</a></div>
-                <div class="breadcrumb-item">Tambah Produk</div>
+                <div class="breadcrumb-item"><a href="{{ route('dashboard.toko.index') }}">Toko</a></div>
+                <div class="breadcrumb-item">{{ $title }}</div>
             </div>
         </div>
 
         <div class="section-body">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('dashboard.produk.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.toko.update', $toko) }}" method="POST">
                         @csrf
-
-                        @include('admin.produk.form')
+                        @method('PUT')
+                        @include('admin.toko.form')
                     </form>
                 </div>
             </div>

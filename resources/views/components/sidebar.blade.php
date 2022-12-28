@@ -15,7 +15,7 @@
 
             <li class="menu-header">Data Master</li>
             <li
-                class="nav-item dropdown {{ in_array(request()->segment(2), ['user', 'kategori', 'produks', 'supplier']) ? 'active' : '' }}">
+                class="nav-item dropdown {{ in_array(request()->segment(2), ['user', 'kategori', 'toko', 'supplier', 'produk']) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Data Master</span></a>
                 <ul class="dropdown-menu">
@@ -27,6 +27,12 @@
                     </li>
                     <li class="{{ Request::is('dashboard/supplier*') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('dashboard.supplier.index') }}">Supplier</a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/toko*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.toko.index') }}">Toko</a>
+                    </li>
+                    <li class="{{ Request::is('dashboard/produk*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.produk.index') }}">Produk</a>
                     </li>
                 </ul>
             </li>
