@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\{
     SupplierController,
     TokoController,
     ProdukController,
-    DashboardController
+    DashboardController,
+    BarangMasukController,
+    BarangKeluarController
 };
 
 /*
@@ -23,13 +25,11 @@ use App\Http\Controllers\Admin\{
 */
 
 
-Route::redirect('/', '/dashboard-general-dashboard');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::redirect('/', '/dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard.index');
 
-Route::prefix('dashboard')->group(function () {
-    Route::get('/index', function () {
-        return 'asdasd';
-    })->name('dashboard.index');
+Route::prefix('dashboard')->middleware('auth')->group(function () {
+    // Route::get('/index', [])->name('dashboard.index');
 
     //User
     Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('dashboard.user.delete');
@@ -71,6 +71,26 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('dashboard.produk.edit');
     Route::post('/produk/store', [ProdukController::class, 'store'])->name('dashboard.produk.store');
     Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('dashboard.produk.update');
+
+    //Barang Masuk
+    Route::get('/barangmasuk', [BarangMasukController::class, 'index'])->name('dashboard.barangmasuk.index');
+    Route::get('/barangmasuk/create', [BarangMasukController::class, 'create'])->name('dashboard.barangmasuk.create');
+    Route::get('/barangmasuk/{barangMasuk}/edit', [BarangMasukController::class, 'edit'])->name('dashboard.barangmasuk.edit');
+    Route::post('/barangmasuk/store', [BarangMasukController::class, 'store'])->name('dashboard.barangmasuk.store');
+    Route::put('/barangmasuk/{barangMasuk}', [BarangMasukController::class, 'update'])->name('dashboard.produk.update');
+    Route::get('/barangmasuk/{barangMasuk}', [BarangMasukController::class, 'show'])->name('dashboard.barangmasuk.show');
+    Route::delete('/barangmasuk/{barangMasuk}', [BarangMasukController::class, 'destroy'])->name('dashboard.barangmasuk.delete');
+    Route::get('/barangmasuk/{barangMasuk}/print', [BarangMasukController::class, 'print'])->name('dashboard.barangmasuk.print');
+
+    //Barang Keluar
+    Route::get('/barangkeluar', [BarangKeluarController::class, 'index'])->name('dashboard.barangkeluar.index');
+    Route::get('/barangkeluar/create', [BarangKeluarController::class, 'create'])->name('dashboard.barangkeluar.create');
+    Route::get('/barangkeluar/{barangKeluar}/edit', [BarangKeluarController::class, 'edit'])->name('dashboard.barangkeluar.edit');
+    Route::post('/barangkeluar/store', [BarangKeluarController::class, 'store'])->name('dashboard.barangkeluar.store');
+    Route::put('/barangkeluar/{barangKeluar}', [BarangKeluarController::class, 'update'])->name('dashboard.produk.update');
+    Route::get('/barangkeluar/{barangKeluar}', [BarangKeluarController::class, 'show'])->name('dashboard.barangkeluar.show');
+    Route::delete('/barangkeluar/{barangKeluar}', [BarangKeluarController::class, 'destroy'])->name('dashboard.barangkeluar.delete');
+    Route::get('/barangkeluar/{barangKeluar}/print', [BarangKeluarController::class, 'print'])->name('dashboard.barangkeluar.print');
 });
 
 

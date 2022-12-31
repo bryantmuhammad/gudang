@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('barang_masuks', function (Blueprint $table) {
             $table->bigIncrements('id_barang_masuk');
             $table->foreignId('id_supplier')->references('id_supplier')->on('suppliers')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->date('tanggal_barang_masuk');
+            $table->date('tanggal_barang_masuk')->nullable();
             $table->double('total');
             $table->timestamps();
         });

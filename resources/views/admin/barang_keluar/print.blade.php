@@ -33,20 +33,24 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="invoice-title">
-                                            <h2>Detail Pembelian</h2>
-
+                                            <h2>Invoice Barang Masuk</h2>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <address>
-                                                    <strong>Supplier :</strong><br>
-                                                    {{ $pembelian->supplier->nama_supplier }}<br>
-                                                    {{ $pembelian->supplier->no_telepon_supplier }}<br>
-                                                    {{ $pembelian->supplier->alamat_supplier }}
+                                                    <strong>Supplier:</strong><br>
+                                                    {{ $barang_masuk->supplier->nama_supplier }}<br>
+                                                    {{ $barang_masuk->supplier->no_telepon_supplier }}<br>
+                                                    {{ $barang_masuk->supplier->alamat_supplier }}<br>
                                                 </address>
                                             </div>
-
+                                            <div class="col-md-6 text-md-right">
+                                                <address>
+                                                    <strong>Tanggal:</strong><br>
+                                                    {{ $barang_masuk->created_at->isoFormat('dddd, D MMMM Y') }}
+                                                </address>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -54,48 +58,58 @@
 
                                 <div class="row mt-4">
                                     <div class="col-md-12">
+                                        <div class="section-title">List Barang Masuk</div>
                                         <div class="table-responsive">
                                             <table class="table-striped table-hover table-md table">
                                                 <tr>
                                                     <th data-width="40">#</th>
-                                                    <th>Nama Produk</th>
+                                                    <th>Produk</th>
                                                     <th class="text-center">Harga</th>
-                                                    <th class="text-center">Jumlah</th>
-                                                    <th class="text-right">Sub Total</th>
+                                                    <th class="text-center">Qty</th>
+                                                    <th class="text-right">Total</th>
                                                 </tr>
                                                 @php
-                                                    $total = 0;
+                                                $total = 0;
                                                 @endphp
-                                                @foreach ($pembelian->detail_pembelian as $detail_pembelian)
+                                                @foreach ($barang_masuk->detail_barang_masuk as $detail_barang_masuk)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $detail_barang_masuk->produk->nama_produk }}</td>
+                                                    <td class="text-center">{{
+                                                        rupiah($detail_barang_masuk->produk->harga) }}</td>
+                                                    <td class="text-center">{{ $detail_barang_masuk->jumlah }}</td>
+                                                    <td class="text-right">{{ rupiah($detail_barang_masuk->jumlah *
+                                                        $detail_barang_masuk->produk->harga) }}</td>
                                                     @php
-                                                        $total += $detail_pembelian->produk->harga * $detail_pembelian->jumlah;
+                                                    $total += $detail_barang_masuk->jumlah *
+                                                    $detail_barang_masuk->produk->harga;
                                                     @endphp
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $detail_pembelian->produk->nama_produk }}</td>
-                                                        <td class="text-center">
-                                                            {{ rupiah($detail_pembelian->produk->harga) }}</td>
-                                                        <td class="text-center">{{ $detail_pembelian->jumlah }}</td>
-                                                        <td class="text-right">
-                                                            {{ rupiah($detail_pembelian->produk->harga * $detail_pembelian->jumlah) }}
-                                                        </td>
-                                                    </tr>
+                                                </tr>
                                                 @endforeach
 
 
                                             </table>
                                         </div>
                                         <div class="row mt-4">
+                                            <div class="col-lg-8">
 
-                                            <div class="col-lg-12 text-right">
+                                            </div>
+                                            <div class="col-lg-4 text-right">
                                                 <div class="invoice-detail-item">
-                                                    <div class="invoice-detail-name">Grand Total</div>
-                                                    <div class="invoice-detail-value">{{ rupiah($total) }}</div>
+
+                                                    <div class="invoice-detail-item">
+                                                        <div class="invoice-detail-name">Total</div>
+                                                        <div class="invoice-detail-value invoice-detail-value-lg">{{
+                                                            rupiah($total)
+                                                            }}</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <hr>
+
                             </div>
                             <hr>
 

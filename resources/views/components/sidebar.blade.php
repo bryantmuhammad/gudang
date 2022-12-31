@@ -36,6 +36,44 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="menu-header">Barang Masuk</li>
+            <li class="nav-item dropdown {{ in_array(request()->segment(2), ['barangmasuk']) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Barang Masuk</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('dashboard/barangmasuk*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.barangmasuk.index') }}">Barang Masuk</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+            <li class="menu-header">Barang Keluar</li>
+            <li class="nav-item dropdown {{ in_array(request()->segment(2), ['barangkeluar']) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Barang Keluar</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('dashboard/barangkeluar*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.barangkeluar.index') }}">Barang Keluar</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown {{ in_array(request()->segment(2), ['barangkeluar']) ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Laporan Barang Masuk</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('dashboard/barangkeluar*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.barangkeluar.index') }}">Laporan Barang Keluar</a>
+                    </li>
+
+                </ul>
+            </li>
+
             @can('crud_admin')
 
             @endcan
