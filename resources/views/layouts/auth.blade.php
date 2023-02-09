@@ -32,9 +32,17 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- END GA -->
+
+    <style>
+        #bod-app {
+            background-image: url('{{ asset('img/sport.png') }}');
+            background-repeat: no-repeat, repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
-<body>
+<body id="bod-app">
     <div id="app">
         <section class="section">
             <div class="container mt-5">

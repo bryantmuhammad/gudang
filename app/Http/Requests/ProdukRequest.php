@@ -34,6 +34,7 @@ class ProdukRequest extends FormRequest
         return [
             'nama_produk'   => ['required', 'max:60'],
             'harga'         => ['required', 'numeric'],
+            'harga_beli'    => ['required', 'numeric'],
             'deskripsi'     => ['required'],
             'id_kategori'   => ['required', 'exists:kategoris,id_kategori'],
             'foto'          => ['required', 'image', 'file', 'max:10240']
@@ -45,6 +46,7 @@ class ProdukRequest extends FormRequest
         return [
             'nama_produk'   => ['required', 'max:60'],
             'harga'         => ['required', 'numeric'],
+            'harga_beli'    => ['required', 'numeric'],
             'deskripsi'     => ['required'],
             'id_kategori'   => ['required', 'exists:kategoris,id_kategori'],
             'foto'          => ['nullable', 'image', 'file', 'max:10240']

@@ -33,23 +33,22 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="invoice-title">
-                                            <h2>Invoice Barang Keluar</h2>
+                                            <h2>Invoice Barang Masuk</h2>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <address>
-                                                    <strong>Toko:</strong><br>
-                                                    {{ $barang_keluar->toko->nama_toko }}<br>
-                                                    {{ $barang_keluar->toko->no_telepon_toko }}<br>
-                                                    {{ $barang_keluar->toko->alamat_toko }}<br>
+                                                    <strong>Supplier:</strong><br>
+                                                    {{ $barang_masuk->supplier->nama_supplier }}<br>
+                                                    {{ $barang_masuk->supplier->no_telepon_supplier }}<br>
+                                                    {{ $barang_masuk->supplier->alamat_supplier }}<br>
                                                 </address>
                                             </div>
                                             <div class="col-md-6 text-md-right">
                                                 <address>
                                                     <strong>Tanggal:</strong><br>
-                                                    {{ $barang_keluar->tanggal_barang_keluar->isoFormat('dddd, D MMMM
-                                                    Y') }}
+                                                    {{ $barang_masuk->created_at->isoFormat('dddd, D MMMM Y') }}
                                                 </address>
                                             </div>
                                         </div>
@@ -72,18 +71,18 @@
                                                 @php
                                                 $total = 0;
                                                 @endphp
-                                                @foreach ($barang_keluar->detail_barang_keluar as $detail_barang_keluar)
+                                                @foreach ($barang_masuk->detail_barang_masuk as $detail_barang_masuk)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $detail_barang_keluar->produk->nama_produk }}</td>
-                                                    <td class="text-center">{{
-                                                        rupiah($detail_barang_keluar->produk->harga) }}</td>
-                                                    <td class="text-center">{{ $detail_barang_keluar->jumlah }}</td>
-                                                    <td class="text-right">{{ rupiah($detail_barang_keluar->jumlah *
-                                                        $detail_barang_keluar->produk->harga) }}</td>
+                                                    <td>{{ $detail_barang_masuk->produk->nama_produk }}</td>
+                                                    <td class="text-center">{{ rupiah($detail_barang_masuk->harga_beli)
+                                                        }}</td>
+                                                    <td class="text-center">{{ $detail_barang_masuk->jumlah }}</td>
+                                                    <td class="text-right">{{ rupiah($detail_barang_masuk->jumlah *
+                                                        $detail_barang_masuk->harga_beli) }}</td>
                                                     @php
-                                                    $total += $detail_barang_keluar->jumlah *
-                                                    $detail_barang_keluar->produk->harga;
+                                                    $total += $detail_barang_masuk->jumlah *
+                                                    $detail_barang_masuk->harga_beli;
                                                     @endphp
                                                 </tr>
                                                 @endforeach

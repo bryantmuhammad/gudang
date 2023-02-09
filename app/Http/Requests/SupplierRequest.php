@@ -43,7 +43,7 @@ class SupplierRequest extends FormRequest
     public function update()
     {
         return [
-            'nama_supplier'         => ['required', 'max:50', Rule::unique('suppliers')->ignore($this->supplier->id)],
+            'nama_supplier'         => ['required', 'max:50'],
             'no_telepon_supplier'   => ['required', 'numeric'],
             'alamat_supplier'       => ['required', 'max:150']
         ];

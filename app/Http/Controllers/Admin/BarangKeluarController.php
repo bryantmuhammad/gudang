@@ -65,7 +65,7 @@ class BarangKeluarController extends Controller
             $barangKeluar = $barang_keluar->data->load('detail_barang_keluar.produk');
             $sub_total = 0;
             foreach ($barangKeluar->detail_barang_keluar as $detail_barang_keluar) {
-                $sub_total += $detail_barang_keluar->jumlah * $detail_barang_keluar->produk->harga;
+                $sub_total += $detail_barang_keluar->jumlah * $detail_barang_keluar->harga_jual;
             }
 
             $barangKeluar->update([
@@ -84,7 +84,7 @@ class BarangKeluarController extends Controller
      */
     public function show(BarangKeluar $barangKeluar)
     {
-        return view('admin.barang_masuk.detail', [
+        return view('admin.barang_keluar.detail', [
             'title' => 'Detail Barang Keluar',
             'barang_keluar' => $barangKeluar->load('toko', 'user', 'detail_barang_keluar.produk')
         ]);
@@ -92,7 +92,7 @@ class BarangKeluarController extends Controller
 
     public function print(BarangKeluar $barangKeluar)
     {
-        return view('admin.barang_masuk.print', [
+        return view('admin.barang_keluar.print', [
             'title' => 'Detail Barang Keluar',
             'barang_keluar' => $barangKeluar->load('toko', 'user', 'detail_barang_keluar.produk')
         ]);

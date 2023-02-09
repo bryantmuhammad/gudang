@@ -18,7 +18,8 @@ class BarangMasukService
             "id_supplier"           => ['required', 'exists:suppliers,id_supplier'],
             "produk"                => ['required', 'array'],
             "produk.*"              => ['required', 'exists:produks,id_produk'],
-            "qty.*"                 => ['required', 'numeric']
+            "qty.*"                 => ['required', 'numeric'],
+            "harga_beli.*"          => ['required', 'numeric']
         ];
 
 
@@ -32,12 +33,14 @@ class BarangMasukService
 
         $temp_detail_barang_masuk = [];
         foreach ($request['produk'] as $key => $id_produk) {
-            $qty = $request['qty'][$key];
+            $qty        = $request['qty'][$key];
+            $harga_beli = $request['harga_beli'][$key];
 
             $temp_detail_barang_masuk[] = [
                 'id_barang_masuk'   => $id_barang_masuk,
                 'id_produk'         => $id_produk,
                 'jumlah'            => $qty,
+                'harga_beli'        => $harga_beli,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s'),
             ];

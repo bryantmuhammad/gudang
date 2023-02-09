@@ -27,4 +27,9 @@ class BarangMasuk extends Model
     {
         return $this->hasMany(DetailBarangMasuk::class, 'id_barang_masuk');
     }
+
+    public function scopeSearchByDate($query, array $tanggal)
+    {
+        return $query->whereBetween('tanggal_barang_masuk', [$tanggal]);
+    }
 }

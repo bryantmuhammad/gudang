@@ -45,8 +45,11 @@
                                     <label for="produk">Produk</label>
                                     <select id="produk" class="form-control">
                                         @foreach ($produks as $produk)
-                                        <option value="{{ $produk->id_produk }}" data-harga={{ $produk->harga }}
-                                            data-foto="{{ $produk->foto }}">{{ $produk->nama_produk }}</option>
+                                        <option value="{{ $produk->id_produk }}" data-stok="{{ $produk->stok }}"
+                                            data-harga={{ $produk->harga }}
+                                            data-foto="{{ $produk->foto }}" data-hargabeli="{{ $produk->harga_beli
+                                            }}">{{
+                                            $produk->nama_produk }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -63,7 +66,9 @@
                                             <tr>
                                                 <th class="text-center">Foto Barang</th>
                                                 <th class="text-center">Nama Barang</th>
-                                                <th class="text-center" width="10%">Jumlah</th>
+                                                <th class="text-center" width="20%">Stok</th>
+                                                <th class="text-center" width="25%">Jumlah</th>
+                                                <th class="text-center" width="25%">Harga Beli</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>

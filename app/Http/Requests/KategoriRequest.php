@@ -41,7 +41,7 @@ class KategoriRequest extends FormRequest
     public function update()
     {
         return [
-            'nama_kategori' => ['required', 'max:50', Rule::unique('kategoris')->ignore($this->kategori->id)]
+            'nama_kategori' => ['required', 'max:50']
         ];
     }
 }

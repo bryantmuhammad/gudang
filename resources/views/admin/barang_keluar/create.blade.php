@@ -66,7 +66,9 @@
                                             <tr>
                                                 <th class="text-center">Foto Barang</th>
                                                 <th class="text-center">Nama Barang</th>
-                                                <th class="text-center" width="10%">Jumlah</th>
+                                                <th class="text-center" width="20%">Stok</th>
+                                                <th class="text-center" width="25%">Jumlah</th>
+                                                <th class="text-center" width="25%">Harga Jual</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
@@ -79,7 +81,7 @@
 
                             <div class="col-lg-4">
                                 <button class="btn btn-primary" type="submit" name="submit" id="submitform">Tambah
-                                    Barang Masuk</button>
+                                    Barang Keluar</button>
                             </div>
                         </div>
                     </form>

@@ -43,7 +43,7 @@ class TokoRequest extends FormRequest
     public function update()
     {
         return [
-            'nama_toko'         => ['required', 'max:50', Rule::unique('tokos')->ignore($this->toko->id)],
+            'nama_toko'         => ['required', 'max:50'],
             'no_telepon_toko'   => ['required', 'numeric'],
             'alamat_toko'       => ['required', 'max:150']
         ];

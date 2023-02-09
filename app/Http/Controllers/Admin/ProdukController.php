@@ -89,7 +89,6 @@ class ProdukController extends Controller
         }
 
         $produk->update($validatedData);
-
         Alert::success('Success', 'Berhasil merubah produk');
 
         return redirect()->route('dashboard.produk.index');

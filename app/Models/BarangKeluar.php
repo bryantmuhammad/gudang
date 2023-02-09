@@ -31,4 +31,9 @@ class BarangKeluar extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeSearchByDate($query, array $tanggal)
+    {
+        return $query->whereBetween('tanggal_barang_keluar', [$tanggal]);
+    }
 }

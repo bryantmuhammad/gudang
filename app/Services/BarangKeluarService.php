@@ -19,7 +19,8 @@ class BarangKeluarService
             "id_toko"                   => ['required', 'exists:suppliers,id_supplier'],
             "produk"                    => ['required', 'array'],
             "produk.*"                  => ['required', 'exists:produks,id_produk'],
-            "qty.*"                     => ['required', 'numeric']
+            "qty.*"                     => ['required', 'numeric'],
+            "harga_jual.*"              => ['required', 'numeric'],
         ];
 
 
@@ -33,12 +34,14 @@ class BarangKeluarService
 
         $temp_detail_barang_keluar = [];
         foreach ($request['produk'] as $key => $id_produk) {
-            $qty = $request['qty'][$key];
+            $qty        = $request['qty'][$key];
+            $harga_jual = $request['harga_jual'][$key];
 
             $temp_detail_barang_keluar[] = [
                 'id_barang_keluar'  => $id_barang_keluar,
                 'id_produk'         => $id_produk,
                 'jumlah'            => $qty,
+                'harga_jual'        => $harga_jual,
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s'),
             ];

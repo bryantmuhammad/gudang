@@ -30,6 +30,13 @@
         </x-forms.input-group>
     </div>
 
+    <div class="col-lg-6">
+        <x-forms.input-group id="harga_beli" name="harga_beli" required="required" type="number"
+            placeholder="Masukan Harga Beli Produk" label="Harga Beli Produk"
+            value="{{ old('harga_beli', $produk->harga_beli ?? '') }}">
+        </x-forms.input-group>
+    </div>
+
     <div class="col-lg-12">
         <x-forms.textarea id="deskripsi" name="deskripsi" required="required" placeholder="Masukan deskripsi Produk"
             label="deskripsi" value="{{ old('deskripsi', $produk->deskripsi ?? '') }}"></x-forms.textarea>

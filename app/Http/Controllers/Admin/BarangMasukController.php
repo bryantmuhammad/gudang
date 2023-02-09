@@ -9,6 +9,7 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Services\BarangMasukService;
 use App\Supports\ValidationResponse;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BarangMasukController extends Controller
 {
@@ -27,7 +28,6 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-
 
         return view('admin.barang_masuk.index', [
             'title' => 'Barang Masuk',
