@@ -41,8 +41,9 @@
                                             </td>
                                             <td class="text-center">{{ rupiah($barang_keluar->total) }}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('dashboard.barangkeluar.show', $barang_keluar->id_barang_keluar) }}"
-                                                    class="btn btn-sm btn-success">Detail</a>
+                                                {{-- <a
+                                                    href="{{ route('dashboard.barangkeluar.show', $barang_keluar->id_barang_keluar) }}"
+                                                    class="btn btn-sm btn-success">Detail</a> --}}
                                                 <a target="_blank"
                                                     href="{{ route('dashboard.barangkeluar.print', $barang_keluar->id_barang_keluar) }}"
                                                     class="btn btn-sm btn-primary">Invoice</a>

@@ -1,16 +1,16 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('dashboard.index') }}">Kayla Sport</a>
+            <a href="{{ route('dashboard.index') }}">Jackass Coffee</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('dashboard.index') }}">KSP</a>
+            <a href="{{ route('dashboard.index') }}">JSC</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard.index') }}">
-                    <i class="fas fa-futbol"></i>
+                    <i class="fa-solid fa-table-columns"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -18,7 +18,7 @@
             <li
                 class="nav-item dropdown {{ in_array(request()->segment(2), ['user', 'kategori', 'toko', 'supplier', 'produk']) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-table-tennis"></i>
+                    <i class="fa-solid fa-mug-saucer"></i>
                     <span>Data Master</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('dashboard/user*') ? 'active' : '' }}">
@@ -42,7 +42,7 @@
             <li class="menu-header">Barang Masuk</li>
             <li class="nav-item dropdown {{ in_array(request()->segment(2), ['barangmasuk']) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-football-ball"></i>
+                    <i class="fa-solid fa-truck-ramp-box"></i>
                     <span>Barang Masuk</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('dashboard/barangmasuk*') ? 'active' : '' }}">
@@ -56,7 +56,7 @@
             <li class="menu-header">Barang Keluar</li>
             <li class="nav-item dropdown {{ in_array(request()->segment(2), ['barangkeluar']) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-basketball-ball"></i>
+                    <i class="fa-solid fa-truck-ramp-box"></i>
                     <span>Barang Keluar</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('dashboard/barangkeluar*') ? 'active' : '' }}">
@@ -70,7 +70,7 @@
             <li
                 class="nav-item dropdown {{ in_array(request()->segment(3), ['barangkeluar','barangmasuk', 'produk']) ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-bullhorn"></i>
+                    <i class="fa-solid fa-file"></i>
                     <span>Laporan</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('dashboard/laporan/produk') ? 'active' : '' }}">

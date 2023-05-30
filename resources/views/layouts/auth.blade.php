@@ -34,11 +34,7 @@
     <!-- END GA -->
 
     <style>
-        #bod-app {
-            background-image: url('{{ asset('img/sport.png') }}');
-            background-repeat: no-repeat, repeat;
-            background-size: cover;
-        }
+
     </style>
 </head>
 
