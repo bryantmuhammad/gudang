@@ -28,13 +28,13 @@
             <div class="isi" style="position:relative;">
                 <p style="text-align:center">
                     <span style="font-family:Times New Roman,Times,serif">
-                        <font size="8">Kayla Sport</font>
+                        <font size="8">Jackass Coffe</font>
                     </span>
                 </p>
                 <p style="text-align:center">
                     <span style="font-size:15px">
-                        Jl. Palagan Tentara Pelajar No.134, Nandan, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah
-                        Istimewa Yogyakarta 55581
+                        Jalan Nologaten No.252-326, Tempel, Caturtunggal, Kec. Depok. Kabupaten Sleman, Daerah Istimewa
+                        Yogyakarta
                     </span>
                 </p>
             </div>
